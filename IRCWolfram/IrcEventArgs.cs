@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IRClient
+namespace IRCWolfram
 {
     public class IrcEventArgs : EventArgs
     {
-        public string Message { get; set; }
+        public Message Message { get; set; }
     }
 }

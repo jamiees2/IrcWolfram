@@ -1,4 +1,6 @@
-﻿namespace IRClient
+﻿using System;
+
+namespace IRCWolfram
 {
     /// <summary>
     /// A wonderful enum for IRC reply codes
@@ -212,4 +214,23 @@
         ErrSilenceListFull = 511                   // <mask> :Your silence list is full                                                UNDERNET/DALNET
 
     };  // eo enum Reply
+    public class ReplyState
+    {
+        public static string ToString(Reply r)
+        {
+            var output = "";
+
+            foreach (var letter in r.ToString())
+            {
+                if (Char.IsUpper(letter) && output.Length > 0)
+                    output += " " + letter;
+                else
+                    output += letter;
+            }
+            output = output.Replace("Err", "Error")
+                .Replace("Rpl", "Reply")
+                .Replace("Nam","Name");
+            return output;
+        }
+    }
 }

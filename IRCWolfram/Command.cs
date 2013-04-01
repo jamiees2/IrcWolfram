@@ -1,23 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IRClient
+namespace IRCWolfram
 {
     public sealed class Command
     {
         public static Dictionary<string,Command> Commands = new Dictionary<string, Command>()
             {
-                {"PRIVMSG", new Command()},
-                {"USER", new Command()},
-                {"NICK", new Command(null,(x,z) => z.Nick = x.Split(' ')[0],Reply.ErrErroneusNickname)},
-                {"JOIN", new Command(null,(x,z) => z.Channel = x.Split(' ')[0])},
-                {"PING", new Command()},
-                {"PONG", new Command()},
-                {"HELP", new Command()},
-                {"QUIT", new Command()},
                 {"ME", new Command((x, y, z) => "PRIVMSG " + z.Channel + " :\u0001" + "ACTION " + y + "\u0001")},
             };
 
